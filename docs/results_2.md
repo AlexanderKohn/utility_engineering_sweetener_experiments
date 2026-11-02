@@ -39,7 +39,7 @@ numbers, not from run length.
   a different direction per model. Qwen3-8B's near-tie exists only with the run-length wording.
 - **Granite has no near-tie to sweeten.** It leans to the shorter run (−2.8), so +1 coin only reaches +1.6.
 - **Coins act almost like a tiebreak on sign.** On Qwen3-8B with `seek`, y falls from +10.9 at 0 coins to −0.4 at −1 coin, an
-  11-point drop for one coin. Going from −1 to −10 coins changes less than 1 point in the opposite direction. This looks more
+  11-point drop for one coin. Going from −1 to −10 coins moves it only about 1 point, and upward. This looks more
   like comparing numbers than valuing coins.
 
 ## Dollar arm
