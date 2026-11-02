@@ -67,7 +67,11 @@ for name in ["Qwen__Qwen2.5-7B-Instruct", "Qwen__Qwen3-8B"]:
     bumps = {c.anchor: float(np.mean([np.array(c.ys)[j] - (np.array(c.ys)[j - 1] + np.array(c.ys)[j + 1]) / 2 for j in i[pow10][1:-1]])) for _, c in cal.iterrows()}
     print("G. round-number bump per anchor:", {k: round(v, 2) for k, v in bumps.items()}, " median:", round(float(np.median(list(bumps.values()))), 2))
 
-    # H. Plateau: width (ln$) where the 3-point running median of the sweep stays within |y| < 1, for crossing anchors.
+    # H. Plateau: longest continuous width (ln$) where the 3-point running median of the sweep stays within |y| < 1, for crossing anchors.
     for _, c in cal[cal.x_star.notna()].iterrows():
         y = pd.Series(c.ys).rolling(3, center=True, min_periods=1).median().values
-        print(f"H. plateau |y|<1  {c.kind:6} {c.anchor:13} width~{(np.abs(y) < 1).sum() * np.log(10) / 4:4.1f} ln$")
+        run = best = 0
+        for inside in np.abs(y) < 1:
+            run = run + 1 if inside else 0
+            best = max(best, run)
+        print(f"H. plateau |y|<1  {c.kind:6} {c.anchor:13} width~{best * np.log(10) / 4:4.1f} ln$")
