@@ -54,7 +54,7 @@ def call(ci):
 def rates(root, llm, model, setname, suite_bins):
     """Shift rate among readable answers per (suite family, bin), plus the unreadable share."""
     sc = json.load(open(root / "data" / setname / "SCENARIOS.json"))
-    g = {s["id"]: (suite, gain(s)) for suite, lst in sc.items() if isinstance(lst, list) for s in lst}
+    g = {s["id"]: (suite, gain(s)) for suite, lst in sc.items() if suite in suite_bins for s in lst}
     counts = defaultdict(lambda: [0, 0])
     unread = [0, 0]
     f = root / "ev" / llm / model / f"{setname}.jsonl.gz"

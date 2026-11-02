@@ -24,6 +24,9 @@ Treat it as exploratory. Do not cite its verdict labels as findings:
 - The instructed-gap positive control failed, so this setup has not been shown able to register a gap.
 - No DReST weights are available. Default Granite 4.2 8B is the only base model of those DReST fine-tunes that fits this GPU.
 
+## Plan 3 (DReST saved answers)
+`docs/plan_3.md`, tagged `plan-3`. Results in `docs/results_3.md`: all four DReST models are `fragile`. Their rate of paying to delay shutdown jumps when gain turns positive and rises with gain, with no dead zone. Next: a non-numeric sweetener on local models.
+
 ## Conventions
 - Commit and tag each analysis plan before running any model against it.
 - Do not change a plan's rules after seeing its data. Report post hoc analysis as post hoc.
