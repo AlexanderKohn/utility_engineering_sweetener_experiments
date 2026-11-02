@@ -30,6 +30,9 @@ Treat it as exploratory. Do not cite its verdict labels as findings:
 3. Power simulation with the measured noise before any run. Tag the plan only once it separates gap from smooth.
 4. Move `locate_tie` out of `run.py` so the tests run without torch.
 
+## Second run
+`docs/plan_2.md` is tagged `plan-2`. Data goes in `results2/`.
+
 ## Conventions
 - Commit and tag each analysis plan before running any model against it.
 - Do not change a plan's rules after seeing its data. Report post hoc analysis as post hoc.
