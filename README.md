@@ -1,5 +1,8 @@
 # Small-sweetener test: preferential gaps vs. indifference in LLMs
 
+> **Status:** the first run is exploratory. Its verdict labels do not discriminate at realistic noise, so do not cite
+> them as findings. See [docs/review_2026-11-01.md](docs/review_2026-11-01.md).
+
 When a model splits 50/50 between A and B, is it indifferent, or is there a preferential gap?
 Utility Engineering-style forced choice scores both as a tie. A small improvement to A separates them.
 
