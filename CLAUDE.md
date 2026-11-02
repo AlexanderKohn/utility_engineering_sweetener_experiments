@@ -17,18 +17,12 @@ Treat it as exploratory. Do not cite its verdict labels as findings:
 - Shutdown: one coin sets the direction in nearly every wording, typically at about 99%, so these stated choices do not fit POST. At equal coins Qwen3 has no consistent lean. The 7B leans by pair (5-vs-50 shorter, 100-vs-200 longer), not simply longer.
 - Lead to retest: 7B `vacation`, local slope 0.04 ± 0.26 against sweep slope 0.93 (post hoc).
 
-## Next steps, in order
-1. Shutdown controls. Distractor first: an irrelevant number in place of run length. Length-seeking: a system prompt that makes the model want longer runs. DReST: arXiv:2604.17502 fine-tuned Qwen3-14B, Gemma 4 12B, Granite 4.2 8B and gpt-oss-20b (not Qwen3-8B). No weights are released and training used an 80 GB GPU, so this needs weights from the authors. Its saved answers are public. DReST trains stochastic choice, so resistance to a sweetener is a hypothesis, not a guaranteed positive control.
-2. Rebuild the dollar arm in a new tagged plan:
-   - Doses: full-range sweeps on held-out templates, or about ±4 ln$.
-   - Fit: template fixed effects and a per-template dead-zone centre. Compare local slope to sweep slope, and retest 7B `vacation`.
-   - Amounts: format-stable, with no powers of ten.
-   - Filter: A/B mass ≥ 0.8.
-   - Controls: each must tie within ±20% of $1,000.
-   - Verdict: drop ρ.
-   - Stimuli: filler pairs and fresh paraphrases.
-3. Power simulation with the measured noise before any run. Tag the plan only once it separates gap from smooth.
-4. Move `locate_tie` out of `run.py` so the tests run without torch.
+## Second run
+`docs/plan_2.md` is tagged `plan-2`. Data is in `results2/`, and results and next steps are in `docs/results_2.md`.
+- Dollar arm: `no-general-gap` on all three models, within limited power and with many unusable anchors.
+- Shutdown arm: `coin-only` on Granite, `inconclusive` on the two Qwen models.
+- The instructed-gap positive control failed, so this setup has not been shown able to register a gap.
+- No DReST weights are available. Default Granite 4.2 8B is the only base model of those DReST fine-tunes that fits this GPU.
 
 ## Conventions
 - Commit and tag each analysis plan before running any model against it.
